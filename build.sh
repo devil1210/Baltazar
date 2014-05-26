@@ -73,8 +73,6 @@ if [ -e $KERNELDIR/arch/arm/boot/zImage ]; then
 	./mkbootfs $INITRAMFS_DEST | gzip > $PAQUETEDIR/ramdisk.gz
 	echo "Haciendo boot.img"
 	./mkbootimg --cmdline 'console=null androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x3F ehci-hcd.park=3 maxcpus=4' --kernel $PAQUETEDIR/zImage --ramdisk $PAQUETEDIR/ramdisk.gz --base 0x80200000 --pagesize 2048 --ramdisk_offset 0x02000000 --output $PAQUETEDIR/devil/boot.img 
-#	./home/devil/Android/dsixda/tools/mkboot/mkbootimg --kernel $PAQUETEDIR/zImage --ramdisk $PAQUETEDIR/ramdisk.gz --cmdline 'console=null androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x3F ehci-hcd.park=3 maxcpus=4' --base 0x80200000 --pagesize 2048 --ramdiskaddr 0x82200000 --output $PAQUETEDIR/devil/boot.img
-#	./mkbootimg --kernel $PAQUETEDIR/zImage --ramdisk $PAQUETEDIR/ramdisk.gz --cmdline 'console=null androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x3F ehci-hcd.park=3 maxcpus=4' --output $PAQUETEDIR/devil/boot.img --base 0x80200000 --pagesize 2048
 	cd $PAQUETEDIR
 	cp -R ../META-INF .
 	rm ramdisk.gz
