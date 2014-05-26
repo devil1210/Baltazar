@@ -61,6 +61,9 @@ scripts/kconfig/zconf.tab.c
 scripts/mod/elfconfig.h
 scripts/genksyms/genksyms
 arch/arm/boot/compressed/piggy.gzip
+arch/arm/boot/compressed/vmlinux
+arch/arm/boot/Image
+arch/arm/boot/zImage
 kernel/config_data.h
 scripts/recordmcount
 kernel/usr/*
