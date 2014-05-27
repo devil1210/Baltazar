@@ -36,6 +36,7 @@ then
 fi;
 
 if [ -e $PAQUETEDIR/devil/boot.img ]; then
+	echo
 	echo "Kernel compilado, desea instalarlo en el movil? ( s / n )"
 	read instalar
 else

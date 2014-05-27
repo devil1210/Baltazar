@@ -11,7 +11,7 @@ export SCRIPT=$PARENT_DIR/Build/Zip/META-INF/com/google/android
 #Enable FIPS mode
 export USE_SEC_FIPS_MODE=true
 export ARCH=arm
-export CROSS_COMPILE=$PARENT_DIR/toolchains/arm-eabi-4.7/bin/arm-eabi-
+export CROSS_COMPILE=$PARENT_DIR/toolchains/arm-cortex_a15-linux-gnueabihf-linaro_4.9.1-2014.05/bin/arm-cortex_a15-linux-gnueabihf-
 
 inicio=$(date +%s.%N)
 
