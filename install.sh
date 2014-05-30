@@ -1,5 +1,5 @@
 #!/bin/bash
-export VER="0.0"
+export VER="1.0"
 export NOMBRECORTO="Baltazar-$VER*"
 export BTZRVER="Baltazar-$VER"
 export KERNELDIR=`readlink -f .`
@@ -65,22 +65,21 @@ then
 	read modules
 	if [ ${modules} == "s" ];
 	then
-
-	echo "Montando Sistema como RW"
-	adb -d shell su -c 'mount -o remount rw /system'
-	echo
-	echo "Colocando modulos en Movil"
-	adb -d shell rm -Rf /sdcard/modules
-	adb -d shell mkdir /sdcard/modules
-	adb push $PAQUETEDIR/system/lib/modules /sdcard/modules
-	echo 
-	echo "Moviendo modulos de /sdcard/modules a /system/lib/modules"
-	adb -d shell su -c 'busybox mv -f /sdcard/modules/*.ko /system/lib/modules/'
-	echo
-	echo "Estableciendo permisos de modulos a RW-R-R (644)"
-	adb -d shell su -c 'chmod 644 /system/lib/modules/*.ko'
-	rm -f modules/*.ko
-
+		echo
+		echo "Montando Sistema como RW"
+		adb -d shell su -c 'mount -o remount rw /system'
+		echo
+		echo "Colocando modulos en Movil"
+		adb -d shell rm -Rf /sdcard/modules
+		adb -d shell mkdir /sdcard/modules
+		adb push $PAQUETEDIR/system/lib/modules /sdcard/modules
+		echo
+		echo "Moviendo modulos de /sdcard/modules a /system/lib/modules"
+		adb -d shell su -c 'busybox mv -f /sdcard/modules/*.ko /system/lib/modules/'
+		echo
+		echo "Estableciendo permisos de modulos a RW-R-R (644)"
+		adb -d shell su -c 'chmod 644 /system/lib/modules/*.ko'
+		rm -f modules/*.ko
 	fi;
 
 	echo
@@ -88,11 +87,19 @@ then
 	read wipecache
 	if [ ${wipecache} == "s" ];
 	then
-	 echo
-	 echo "Eliminando dalvik-cache.."
-	 adb shell su -c 'rm -Rf /data/dalvik-cache'
-	 echo
+		echo
+		echo "Eliminando dalvik-cache.."
+		adb shell su -c 'rm -Rf /data/dalvik-cache'
+		echo
 	fi;
-	echo "Reiniciando el movil..."
-	adb reboot
+	echo
+	echo "Quieres hacer reiniciar el movil  ? ( s / n )"
+	read reinicio
+	if [ ${reinicio} == "s" ];
+	then
+		echo
+		echo "Reiniciando el movil..."
+		adb reboot
+		echo
+	fi;
 fi;
