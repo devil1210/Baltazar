@@ -1,5 +1,5 @@
 #!/bin/sh
-export VER="1.0"
+export VER="1.1"
 export NOMBRECORTO="Baltazar-$VER*"
 export BTZRVER="Baltazar-$VER"
 export KERNELDIR=`readlink -f .`
@@ -11,7 +11,7 @@ export SCRIPT=$PARENT_DIR/Build/Zip/META-INF/com/google/android
 #Enable FIPS mode
 export USE_SEC_FIPS_MODE=true
 export ARCH=arm
-export CROSS_COMPILE=$PARENT_DIR/toolchains/arm-cortex_a15-linux-gnueabihf-linaro_4.9.1-2014.05/bin/arm-cortex_a15-linux-gnueabihf-
+export CROSS_COMPILE=$PARENT_DIR/toolchains/arm-cortex_a15-linux-gnueabihf-linaro_4.9.2-2014.08/bin/arm-cortex_a15-linux-gnueabihf-
 
 inicio=$(date +%s.%N)
 

@@ -1,5 +1,5 @@
 #!/bin/bash
-export VER="1.0"
+export VER="1.1"
 export NOMBRECORTO="Baltazar-$VER*"
 export BTZRVER="Baltazar-$VER"
 export KERNELDIR=`readlink -f .`
